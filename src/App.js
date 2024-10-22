@@ -1,24 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import UserInput from './components/UserInput';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>This is a refined language translation App</h1>
-        <p>
-          YouTranslate Web App
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          understanding React
-        </a>
-      </header>
+      <h1>This is a refined translation app</h1>
+      <UserInput/> 
     </div>
   );
 }
