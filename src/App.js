@@ -2,7 +2,8 @@ import TextInput from './components/TextInput';
 import React from 'react';
 import { useState } from 'react';
 import SelectLang from './components/SelectLang';
-
+//import TranslateInput from './ExternalService/TranslateInput';
+import TranslateButton from './components/TranslateButton';
 
 function App() {
   const [Input, setInput] = useState('');
@@ -21,6 +22,7 @@ function App() {
       <TextInput input={Input} setinput={setInput}/>
       <SelectLang Lang={FromLang} setLang={setFromLang}/>
       <SelectLang Lang={ToLang} setLang={setToLang}/>
+      <TranslateButton onClick={GetTranslation}/>
     </div>
   );
 }
