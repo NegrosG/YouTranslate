@@ -19,7 +19,8 @@ function App() {
     <div className="App">
       <h1>Welcome to YouTranslate</h1>
       <TextInput input={Input} setinput={setInput}/>
-      <SelectLang/>
+      <SelectLang Lang={FromLang} setLang={setFromLang}/>
+      <SelectLang Lang={ToLang} setLang={setToLang}/>
     </div>
   );
 }
