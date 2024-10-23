@@ -6,10 +6,9 @@ function TextInput({Input, setInput}) {
             <inputbox 
             value={Input}
             onChange={(e) => setInput(e.target.value)}
-             placeholder="Enter text here"
-            ></inputbox>
+            placeholder="Enter text here"
+            />
         </div>
-    )
-   
+    );
 }
 export default TextInput
