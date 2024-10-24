@@ -3,7 +3,7 @@ import React from 'react';
 function TranslateButton({onClick}) {
     return (
         <div>
-            <button> onClick={onClick}</button>
+            <button onClick={onClick}>Translate</button>
         </div>
     );
 }
