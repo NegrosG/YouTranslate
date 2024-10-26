@@ -14,4 +14,4 @@ function SelectLang({ Lang, setLang }) {
     );
 }
 
-export default SelectLang
+export default SelectLang;
