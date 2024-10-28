@@ -9,10 +9,21 @@ function Form() {
   const [TranslatedInput, setTranslatedInput] = useState('');
   const [FromLang, setFromLang] = useState("en");
   const [ToLang, setToLang] = useState("fr");
+  const [Loading, setLoading] = useState("false");
+  const [Error, setError] = useState("null"); 
+
+  console.log(Input);
 
   const GetTranslation = async () => {
-    const translations = await TranslateInput(Input, FromLang, ToLang);
-    setTranslatedInput(translations)
+    setLoading(true);
+    setError(null);
+    try {
+      const translations = await TranslateInput(Input, FromLang, ToLang);
+      setTranslatedInput(translations);
+    } catch(err) {
+      setError("Translation failure. Please try again")
+    }
+    setLoading(false);
   };
   return (
     <div className="translate form">
@@ -20,8 +31,15 @@ function Form() {
       <TextInput Input={Input} setInput={setInput}/>
       <SelectLang Lang={FromLang} setLang={setFromLang}/>
       <SelectLang Lang={ToLang} setLang={setToLang}/>
-      <TranslateButton onClick={GetTranslation}/>
+      <TranslateButton onClick={GetTranslation} disabled={Loading || !Input}/>
       <textarea value={TranslatedInput} rows="15" cols="55" placeholder='Your text will be displayed here' disabled/>
+      <div>
+        { Loading ? (
+          <p className='loading'>Translating...</p>
+        ) : Error ? (
+          <p className='error'>{Error}</p>
+        ) : null}
+      </div>
     </div>
   );
 }
