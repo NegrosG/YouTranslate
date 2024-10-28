@@ -31,7 +31,7 @@ function Form() {
       <TextInput Input={Input} setInput={setInput}/>
       <SelectLang Lang={FromLang} setLang={setFromLang}/>
       <SelectLang Lang={ToLang} setLang={setToLang}/>
-      <TranslateButton onClick={GetTranslation} disabled={Loading || !Input}/>
+      <TranslateButton onClick={GetTranslation}/>
       <textarea value={TranslatedInput} rows="15" cols="55" placeholder='Your text will be displayed here' disabled/>
       <div>
         { Loading ? (
