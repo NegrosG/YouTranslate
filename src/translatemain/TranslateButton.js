@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function TranslateButton({onClick, disabled}) {
+function TranslateButton({ onClick, disabled }) {
     return (
         <div>
             <button onClick={onClick}
