@@ -28,18 +28,22 @@ function Form() {
   return (
     <div className="translate form">
       <h1>Welcome to YouTranslate</h1>
-      <TextInput Input={Input} setInput={setInput}/>
-      <SelectLang Lang={FromLang} setLang={setFromLang}/>
-      <SelectLang Lang={ToLang} setLang={setToLang}/>
-      <TranslateButton onClick={GetTranslation}/>
-      <textarea value={TranslatedInput} rows="15" cols="55" placeholder='Your text will be displayed here' disabled/>
       <div>
+        <SelectLang Lang={FromLang} setLang={setFromLang}/>
+        <SelectLang Lang={ToLang} setLang={setToLang}/>
+      </div>
+      <div><div>
+        <TextInput Input={Input} setInput={setInput}/>
+      </div>
+      <TranslateButton onClick={GetTranslation}/>
+      <div>
+        <textarea value={TranslatedInput} rows="15" cols="55" placeholder='Your text will be displayed here' disabled/>
         { Loading ? (
           <p className='loading'>Translating...</p>
         ) : Error ? (
           <p className='error'>{Error}</p>
         ) : null}
-      </div>
+      </div></div>
     </div>
   );
 }
