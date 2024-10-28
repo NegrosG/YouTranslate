@@ -10,18 +10,20 @@ function Form() {
   const [FromLang, setFromLang] = useState("en");
   const [ToLang, setToLang] = useState("fr");
   const [Loading, setLoading] = useState("false");
-  const [Error, setError] = useState("null"); 
+  const [Error, setError] = useState(''); 
 
   console.log(Input);
 
   const GetTranslation = async () => {
     setLoading(true);
-    setError(null);
+    setError('');
+    setTranslatedInput("Translating...")
     try {
       const translations = await TranslateInput(Input, FromLang, ToLang);
       setTranslatedInput(translations);
     } catch(err) {
       setError("Translation failure. Please try again")
+      setTranslatedInput('');
     }
     setLoading(false);
   };
@@ -35,14 +37,19 @@ function Form() {
       <div><div>
         <TextInput Input={Input} setInput={setInput}/>
       </div>
-      <TranslateButton onClick={GetTranslation}/>
+      <TranslateButton onClick={GetTranslation} disabled={!Input || Loading}/>
       <div>
-        <textarea value={TranslatedInput} rows="15" cols="55" placeholder='Your text will be displayed here' disabled/>
-        { Loading ? (
-          <p className='loading'>Translating...</p>
-        ) : Error ? (
-          <p className='error'>{Error}</p>
-        ) : null}
+        <textarea style= {{
+          resize : 'none', 
+          width: '50%', 
+          padding: '8px', 
+          border: '1px solid #ccc', 
+          backgroundColor: '#ffffff'
+        }} 
+        value={Error || TranslatedInput} 
+        rows="15" cols="55" 
+        placeholder='Your text will be displayed here' 
+        disabled/>
       </div></div>
     </div>
   );

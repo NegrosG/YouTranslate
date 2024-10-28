@@ -1,10 +1,11 @@
 import React from 'react';
 
 
-function TranslateButton({onClick}) {
+function TranslateButton({onClick, disabled}) {
     return (
         <div>
-            <button onClick={onClick}>Translate</button>
+            <button onClick={onClick}
+            disabled={disabled}>Translate</button>
         </div>
     );
 }
