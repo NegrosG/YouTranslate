@@ -7,13 +7,15 @@ import './App.css';
 
 function App() {
   return (
-    <div className='app-container'>
-      <h1>YouTranslate</h1>
+    <div>
       <Sidebar/>
-      <Form/>
-      <Footer/>
-    </div>
-  );
-}
+      <div className='app-container'>
+        <h1>YouTranslate</h1>
+        <p>The world is closer to you.</p>
+        <Form/>
+        <Footer/>
+      </div></div>
+    );
+};
 
 export default App;
