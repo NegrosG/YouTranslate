@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 
 function TextToSpeech ({ text }) {
-    const {speak, cancel, speaking} = useSpeechSynthesis();
+    const {speak} = useSpeechSynthesis();
 
     return (
         <div style={{
