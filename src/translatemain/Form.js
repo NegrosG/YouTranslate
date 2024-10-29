@@ -53,7 +53,11 @@ function Form() {
         rows="15" cols="55" 
         placeholder='Your text will be displayed here' 
         disabled/>
-        <TextToSpeech text={TranslatedInput}/>
+        <div style={{
+          position: 'absolute',
+          bottom: '10px',
+          right: '10px'
+        }}><TextToSpeech text={TranslatedInput}/></div>
       </div></div>
     </div>
   );

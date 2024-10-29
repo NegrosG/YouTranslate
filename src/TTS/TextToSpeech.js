@@ -1,17 +1,20 @@
 import React from 'react';
-import { useSpeechSynthesis} from 'react-speech-kit';
+import {useSpeechSynthesis} from 'react-speech-kit';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 
 function TextToSpeech ({ text }) {
     const {speak, cancel, speaking} = useSpeechSynthesis();
 
     return (
-        <div>
-            <button onClick={() => speak({text})} disabled={speaking}>
-                {speaking ? 'Speaking...' : 'Read Aloud'}
-            </button>
-            <button onClick = {cancel} disabled={!speaking}>
-                stop
-            </button>
+        <div style={{
+            display: 'inline-block',
+            cursor: 'pointer'
+        }}><FontAwesomeIcon
+                icon={faVolumeUp}
+                size="lg"
+                onClick={() => speak({text})}
+                title="Read Aloud"/>
         </div>
     );
 }
