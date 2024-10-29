@@ -2,15 +2,17 @@ import TextInput from '../translatemain/TextInput'
 import React, { useState } from 'react';
 import SelectLang from '../Language/SelectLang';
 import TranslateInput from '../ExternalService/TranslateInput';
-import TranslateButton from '../translatemain/TranslateButton'
+import TranslateButton from '../translatemain/TranslateButton';
+import TextToSpeech from '../TTS/TextToSpeech';
+
 
 function Form() {
   const [Input, setInput] = useState('');
   const [TranslatedInput, setTranslatedInput] = useState('');
   const [FromLang, setFromLang] = useState("en");
   const [ToLang, setToLang] = useState("fr");
-  const [Loading, setLoading] = useState("false");
-  const [Error, setError] = useState(''); 
+  const [Loading, setLoading] = useState(false);
+  const [Error, setError] = useState(null); 
 
   console.log(Input);
 
@@ -36,6 +38,7 @@ function Form() {
       </div>
       <div><div>
         <TextInput Input={Input} setInput={setInput}/>
+        <TextToSpeech text={Input}/>
       </div>
       <TranslateButton onClick={GetTranslation} disabled={!Input || Loading}/>
       <div>
@@ -50,6 +53,7 @@ function Form() {
         rows="15" cols="55" 
         placeholder='Your text will be displayed here' 
         disabled/>
+        <TextToSpeech text={TranslatedInput}/>
       </div></div>
     </div>
   );
