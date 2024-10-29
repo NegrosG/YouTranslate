@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from '../translatemain/Form';
-import Header from '../Header/Header';
+import Sidebar from '../Sidebar/Sidebar';
 import Footer from '../Footer/Footer';
 import './App.css';
 
@@ -8,7 +8,8 @@ import './App.css';
 function App() {
   return (
     <div className='app-container'>
-      <Header/>
+      <h1>YouTranslate</h1>
+      <Sidebar/>
       <Form/>
       <Footer/>
     </div>

@@ -31,16 +31,16 @@ function Form() {
   };
   return (
     <div className="translate form">
-      <h1>Welcome to YouTranslate</h1>
       <div>
         <SelectLang Lang={FromLang} setLang={setFromLang}/>
+        <TranslateButton onClick={GetTranslation} disabled={!Input || Loading}/>
         <SelectLang Lang={ToLang} setLang={setToLang}/>
       </div>
-      <div><div>
+      <div>
+      <div>
         <TextInput Input={Input} setInput={setInput}/>
         <TextToSpeech text={Input}/>
       </div>
-      <TranslateButton onClick={GetTranslation} disabled={!Input || Loading}/>
       <div>
         <textarea style= {{
           resize : 'none', 
