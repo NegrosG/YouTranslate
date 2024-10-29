@@ -9,8 +9,8 @@ function Form() {
   const [TranslatedInput, setTranslatedInput] = useState('');
   const [FromLang, setFromLang] = useState("en");
   const [ToLang, setToLang] = useState("fr");
-  const [Loading, setLoading] = useState("false");
-  const [Error, setError] = useState(''); 
+  const [Loading, setLoading] = useState(false);
+  const [Error, setError] = useState(null); 
 
   console.log(Input);
 
