@@ -10,11 +10,14 @@ function App() {
     <div>
       <Sidebar/>
       <div className='app-container'>
+        <div>
         <h1>YouTranslate</h1>
         <p>The world is closer to you.</p>
+        </div>
         <Form/>
         <Footer/>
-      </div></div>
+      </div>
+    </div>
     );
 };
 

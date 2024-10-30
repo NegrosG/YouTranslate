@@ -4,7 +4,7 @@ import SelectLang from '../Language/SelectLang';
 import TranslateInput from '../ExternalService/TranslateInput';
 import TranslateButton from '../translatemain/TranslateButton';
 import TextToSpeech from '../TTS/TextToSpeech';
-
+import './Form.css';
 
 function Form() {
   const [Input, setInput] = useState('');
@@ -30,10 +30,9 @@ function Form() {
     setLoading(false);
   };
   return (
-    <div className="translate form">
-      <div>
+    <div className="translate-form">
+      <div className='language-dropdowm'>
         <SelectLang Lang={FromLang} setLang={setFromLang}/>
-        <TranslateButton onClick={GetTranslation} disabled={!Input || Loading}/>
         <SelectLang Lang={ToLang} setLang={setToLang}/>
       </div>
       <div>
@@ -41,6 +40,7 @@ function Form() {
         <TextInput Input={Input} setInput={setInput}/>
         <TextToSpeech text={Input}/>
       </div>
+      <TranslateButton onClick={GetTranslation} disabled={!Input || Loading}/>
       <div>
         <textarea style= {{
           resize : 'none', 

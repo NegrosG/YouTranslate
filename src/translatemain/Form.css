@@ -1,0 +1,16 @@
+.translate-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+.language-dropdowm {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
