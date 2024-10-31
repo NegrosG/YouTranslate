@@ -16,7 +16,7 @@ function Form() {
   const [Loading, setLoading] = useState(false);
   const [Error, setError] = useState(null); 
 
-  console.log(Input);
+  console.log(Input); 
 
   const GetTranslation = async () => {
     setLoading(true);
