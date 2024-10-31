@@ -4,6 +4,8 @@ import SelectLang from '../Language/SelectLang';
 import TranslateInput from '../ExternalService/TranslateInput';
 import TranslateButton from '../translatemain/TranslateButton';
 import TextToSpeech from '../TTS/TextToSpeech';
+import { PiCopySimpleFill } from "react-icons/pi";
+import CopyText from '../CopyText/CopyText';
 import './Form.css';
 
 function Form() {
@@ -42,23 +44,14 @@ function Form() {
       </div>
       <TranslateButton onClick={GetTranslation} disabled={!Input || Loading}/>
       <div>
-        <textarea style= {{
-          resize : 'none', 
-          width: '50%', 
-          padding: '8px', 
-          border: '1px solid #ccc', 
-          backgroundColor: '#ffffff'
-        }} 
+        <textarea className='translated' 
         value={Error || TranslatedInput} 
         rows="15" cols="55" 
         placeholder='Your text will be displayed here' 
         disabled/>
-        <div style={{
-          position: 'absolute',
-          bottom: '10px',
-          right: '10px'
-        }}><TextToSpeech text={TranslatedInput}/></div>
-      </div></div>
+        <button onClick={() => CopyText(Input)}><PiCopySimpleFill size={23}/></button>
+        <TextToSpeech text={TranslatedInput}/></div>
+      </div>
     </div>
   );
 }
