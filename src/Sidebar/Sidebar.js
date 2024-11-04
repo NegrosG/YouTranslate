@@ -13,20 +13,20 @@ const Sidebar =() => {
                     <span className='tool'>Translate</span>
                 </li>
                 <li>
-                    <FaInfoCircle className='icon'/>
-                    <span className='tool'>About</span>
-                </li>
-                <li>
-                    <MdContactPhone className='icon'/>
-                    <span className='tool'>Contact</span>
+                    <IoBookmarks className='icon'/>
+                    <span className='tool'>Bookmarks</span>
                 </li>
                 <li>
                     <MdHistory className='icon'/>
                     <span className='tool'>History</span>
                 </li>
                 <li>
-                    <IoBookmarks className='icon'/>
-                    <span className='tool'>Bookmarks</span>
+                    <FaInfoCircle className='icon'/>
+                    <span className='tool'>About</span>
+                </li>
+                <li>
+                    <MdContactPhone className='icon'/>
+                    <span className='tool'>Contact</span>
                 </li>
             </ul>
         </div>

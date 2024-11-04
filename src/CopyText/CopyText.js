@@ -1,7 +1,7 @@
 const CopyText = (text) => {
     navigator.clipboard.writeText(text)
-        .then(() => alert("Text copied to clipboard!"))
-        .catch((error) => console.error("could not copy text:", error))
+        .then(() => alert("Copied!"))
+        .catch((error) => console.error("Failed:", error))
 }
 
 export default CopyText;

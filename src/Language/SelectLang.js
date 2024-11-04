@@ -5,7 +5,7 @@ function SelectLang({ Lang, setLang }) {
     return (
         <div className='lang-box'>
             <select className='language-select' value={Lang} onChange={(e) => setLang(e.target.value)}>
-                <option value={"en"}>English</option>
+                <option value="en">English</option>
                 <option value="fr">French</option>
                 <option value="es">Spanish</option>
                 <option value="de">German</option>
