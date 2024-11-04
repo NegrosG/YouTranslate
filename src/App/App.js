@@ -1,23 +1,30 @@
 import React from 'react';
-import Form from '../translatemain/Form';
 import Sidebar from '../Sidebar/Sidebar';
-import Footer from '../Footer/Footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from '../Pages/home'
+import About from '../Pages/About';
+import Bookmarks from '../Pages/Bookmarks'
+import Contact from '../Pages/Contact';
+import History from '../Pages/History';
 import './App.css';
 
 
 function App() {
   return (
+    <Router>
     <div>
       <Sidebar/>
       <div className='app-container'>
-        <div>
-        <h1>YouTranslate</h1>
-        <p>The world is closer to you.</p>
-        </div>
-        <Form/>
-        <Footer/>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/bookmarks' element={<Bookmarks/>}/>
+          <Route path='/contact' element={<Contact/>}/>
+          <Route path='/history' element={<History/>}/> 
+        </Routes>
       </div>
-    </div>
+      </div>
+    </Router>
     );
 };
 

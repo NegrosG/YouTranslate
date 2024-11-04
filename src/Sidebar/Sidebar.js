@@ -2,6 +2,7 @@ import React from 'react';
 import { FaHome, FaInfoCircle } from "react-icons/fa";
 import { IoBookmarks } from "react-icons/io5";
 import { MdContactPhone, MdHistory } from "react-icons/md";
+import { Link } from 'react-router-dom';
 import './Sidebar.css'
 
 const Sidebar =() => {
@@ -9,24 +10,34 @@ const Sidebar =() => {
         <div className='sidebar'>
             <ul>
                 <li>
-                    <FaHome className='icon'/>
-                    <span className='tool'>Translate</span>
+                    <Link to="/">
+                        <FaHome className='icon'/>
+                        <span className='tool'>Translate</span>
+                    </Link>
                 </li>
                 <li>
-                    <IoBookmarks className='icon'/>
-                    <span className='tool'>Bookmarks</span>
+                    <Link to="/bookmarks">
+                        <IoBookmarks className='icon'/>
+                        <span className='tool'>Bookmarks</span>
+                    </Link>
                 </li>
                 <li>
-                    <MdHistory className='icon'/>
-                    <span className='tool'>History</span>
+                    <Link to="/history">
+                        <MdHistory className='icon'/>
+                        <span className='tool'>History</span>
+                    </Link>
                 </li>
                 <li>
-                    <FaInfoCircle className='icon'/>
-                    <span className='tool'>About</span>
+                    <Link to="/about">
+                        <FaInfoCircle className='icon'/>
+                        <span className='tool'>About</span>
+                    </Link>
                 </li>
                 <li>
-                    <MdContactPhone className='icon'/>
-                    <span className='tool'>Contact</span>
+                    <Link to="contact">
+                        <MdContactPhone className='icon'/>
+                        <span className='tool'>Contact</span>
+                    </Link>
                 </li>
             </ul>
         </div>
