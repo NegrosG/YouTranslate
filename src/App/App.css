@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --primary-color: #d0ecec;
+  --secondary-color: #f7f7f7;
+  --text-color: #333;
+  --font-size-base: 16px;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-lato: 'Lato', sans-serif;
+  --font-raleway: 'Raleway', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+}
+
 * {
   outline: 1px solid rgba(0, 0, 255, 0.5); /* Adds a semi-transparent blue outline to all elements */
   box-sizing: border-box; /* Ensures padding and border are included in width/height */
@@ -7,18 +20,29 @@
   outline: 1px solid rgba(0, 255, 0, 0.5); /* Outlines pseudo-elements */
 }
 
-body * {
-  margin: 2px;
-  padding: 2px;
+body *
+{
+  margin: 1px;
+  padding: 1px;
+  box-sizing: border-box;
 }
 
+/* body *:not(.sidebar, .sidebar *) {
+  margin: 1px;
+  padding: 1px;
+  font-family: var(--font-roboto);
+  box-sizing: border-box;
+  outline: 1px solid rgba(0, 0, 255, 0.5); // Only apply to non-sidebar elements 
+}*/
+
 .app-container {
-  margin-left: 80px;
+  margin-left: 60px;
+  background-color: var(--secondary-color);
   height: 100vh;
   padding-left: 20px;
   box-sizing: border-box;
   overflow-y: auto;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-raleway)
 }
 
 /*@media (max-width: 768px) {

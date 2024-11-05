@@ -6,6 +6,7 @@ import About from '../Pages/About';
 import Bookmarks from '../Pages/Bookmarks'
 import Contact from '../Pages/Contact';
 import History from '../Pages/History';
+import Footer from '../Footer/Footer';
 import './App.css';
 
 
@@ -13,7 +14,7 @@ function App() {
   return (
     <Router>
     <div>
-      <Sidebar/>
+    <Sidebar/>
       <div className='app-container'>
         <Routes>
           <Route path='/' element={<Home/>}/>
@@ -23,6 +24,7 @@ function App() {
           <Route path='/history' element={<History/>}/> 
         </Routes>
       </div>
+      <Footer />
       </div>
     </Router>
     );

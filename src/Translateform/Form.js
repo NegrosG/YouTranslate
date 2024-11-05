@@ -1,8 +1,8 @@
-import TextInput from '../translatemain/TextInput'
+import TextInput from './TextInput'
 import React, { useState } from 'react';
 import SelectLang from '../Language/SelectLang';
 import TranslateInput from '../ExternalService/TranslateInput';
-import TranslateButton from '../translatemain/TranslateButton';
+import TranslateButton from './TranslateButton';
 import TextToSpeech from '../TTS & STT/TextToSpeech';
 import { PiCopySimpleFill } from "react-icons/pi";
 import CopyText from '../CopyText/CopyText';
@@ -40,7 +40,6 @@ function Form() {
       <div>
       <div>
         <TextInput Input={Input} setInput={setInput}/>
-        <TextToSpeech text={Input}/>
       </div>
       <TranslateButton onClick={GetTranslation} disabled={!Input || Loading}/>
       <div>
@@ -49,8 +48,9 @@ function Form() {
         rows="15" cols="55" 
         placeholder='Your text will be displayed here' 
         disabled/>
+        <TextToSpeech text={TranslatedInput}/>
         <button onClick={() => CopyText(TranslatedInput)}><PiCopySimpleFill size={23}/></button>
-        <TextToSpeech text={TranslatedInput}/></div>
+        </div>
       </div>
     </div>
   );

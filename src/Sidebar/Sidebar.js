@@ -3,11 +3,13 @@ import { FaHome, FaInfoCircle } from "react-icons/fa";
 import { IoBookmarks } from "react-icons/io5";
 import { MdContactPhone, MdHistory } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import logo from './YT-logo.png';
 import './Sidebar.css'
 
 const Sidebar =() => {
     return (
         <div className='sidebar'>
+            <img src={logo} alt='logo' className='sidebar-logo'/>
             <ul>
                 <li>
                     <Link to="/">
