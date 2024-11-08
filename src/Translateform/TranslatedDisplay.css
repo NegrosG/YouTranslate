@@ -1,4 +1,4 @@
-.text-form {
+.translation-form {
     position: relative;
     display: flex;
     flex: 1;
@@ -10,7 +10,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-.text-input {
+
+
+.translated {
     width: 90%;
     min-height: 200px;
     max-height: 70%;
@@ -21,16 +23,9 @@
     resize: none;
 }
 
-.text-form button {
+.translation-form button {
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
-}
-
-.feature-box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-left: 25px;
 }

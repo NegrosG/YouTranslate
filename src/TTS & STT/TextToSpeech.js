@@ -14,7 +14,7 @@ function TextToSpeech ({ text }) {
                 icon={faVolumeUp}
                 size="lg"
                 onClick={() => speak({text})}
-                title="Read Aloud"/>
+                title="Speaker"/>
         </div>
     );
 }

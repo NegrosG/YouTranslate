@@ -20,7 +20,7 @@ const Sidebar =() => {
                 <li>
                     <Link to="/bookmarks">
                         <IoBookmarks className='icon'/>
-                        <span className='tool'>Bookmarks</span>
+                        <span className='tool'>Collections</span>
                     </Link>
                 </li>
                 <li>

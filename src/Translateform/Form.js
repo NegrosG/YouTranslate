@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 import SelectLang from '../Language/SelectLang';
 import TranslateInput from '../ExternalService/TranslateInput';
 import TranslateButton from './TranslateButton';
-import TextToSpeech from '../TTS & STT/TextToSpeech';
-import { PiCopySimpleFill } from "react-icons/pi";
-import CopyText from '../CopyText/CopyText';
+import TranslatedDisplay from './TranslatedDisplay';
 import './Form.css';
 
 function Form() {
@@ -22,9 +20,25 @@ function Form() {
     setLoading(true);
     setError('');
     setTranslatedInput("Translating...")
+
+
     try {
       const translations = await TranslateInput(Input, FromLang, ToLang);
       setTranslatedInput(translations);
+
+      const newTranslation = {
+        inputtext: Input,
+        translatedtext: translations,
+        fromlang: FromLang,
+        tolang: ToLang
+      };
+
+      if (translations && ! Error) {
+      const savedHistory = JSON.parse(localStorage.getItem('translationHistory')) || [];
+      const updatedHistory = [newTranslation, ...savedHistory];
+      localStorage.setItem('translationHistory', JSON.stringify(updatedHistory));
+    } console.log('Updated history in localStorage:', JSON.parse(localStorage.getItem('translationHistory')));
+
     } catch(err) {
       setError("Translation failure. Please try again")
       setTranslatedInput('');
@@ -33,24 +47,14 @@ function Form() {
   };
   return (
     <div className="translate-form">
-      <div className='language-dropdowm'>
+      <div className='language-dropdown'>
         <SelectLang Lang={FromLang} setLang={setFromLang}/>
         <SelectLang Lang={ToLang} setLang={setToLang}/>
       </div>
-      <div>
-      <div>
+      <div className='form-container'>
         <TextInput Input={Input} setInput={setInput}/>
-      </div>
-      <TranslateButton onClick={GetTranslation} disabled={!Input || Loading}/>
-      <div>
-        <textarea className='translated' 
-        value={Error || TranslatedInput} 
-        rows="15" cols="55" 
-        placeholder='Your text will be displayed here' 
-        disabled/>
-        <TextToSpeech text={TranslatedInput}/>
-        <button onClick={() => CopyText(TranslatedInput)}><PiCopySimpleFill size={23}/></button>
-        </div>
+        <TranslateButton onClick={GetTranslation} disabled={!Input || Loading}/>
+        <TranslatedDisplay translatedtext={TranslatedInput} error={Error}/>
       </div>
     </div>
   );
