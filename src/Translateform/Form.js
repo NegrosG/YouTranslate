@@ -28,10 +28,17 @@ function Form() {
 
 
       if (translations && !Error) {
-      const savedHistory = JSON.parse(localStorage.getItem('translationHistory')) || [];
-      const updatedHistory = [{ input: Input, translation: translations }, ...savedHistory];
-      localStorage.setItem('translationHistory', JSON.stringify(updatedHistory));
-    } console.log('Updated history in localStorage:', JSON.parse(localStorage.getItem('translationHistory')));
+        const savedHistory = JSON.parse(localStorage.getItem('translationHistory')) || [];
+        const alreadyExist = savedHistory.some(
+          (entry) => entry.input === Input && entry.translation === translations
+        );
+
+        if (!alreadyExist) {
+          const updatedHistory = [{ input: Input, translation: translations }, ...savedHistory];
+          localStorage.setItem('translationHistory', JSON.stringify(updatedHistory));
+        }
+      } 
+      console.log('Updated history in localStorage:', JSON.parse(localStorage.getItem('translationHistory')));
 
     } catch(err) {
       setError("Translation failure. Please try again")
@@ -48,7 +55,7 @@ function Form() {
       <div className='form-container'>
         <TextInput Input={Input} setInput={setInput}/>
         <TranslateButton onClick={GetTranslation} disabled={!Input || Loading}/>
-        <TranslatedDisplay translatedtext={TranslatedInput} error={Error}/>
+        <TranslatedDisplay inputtext={Input} translatedtext={TranslatedInput} error={Error}/>
       </div>
     </div>
   );

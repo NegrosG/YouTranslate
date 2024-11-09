@@ -10,12 +10,21 @@ function History() {
         setHistory(savedHistory);
     }, []);
 
+    const ClearHistory = () => {
+        localStorage.removeItem('translationHistory')
+        setHistory([]);
+    }
+
     return (
         <div className='history-page'>
             <h2>History</h2>
             {History.lenght === 0 ? (
                 <p>No translation found.</p>
             ) : (
+                <div>
+                    <button onClick={ClearHistory} className="clear-history">
+                        Clear History
+                    </button>
                 <div className="history-list">
                     {History.map((item, index) => (
                         <div className="history-item" key={index}>
@@ -27,6 +36,7 @@ function History() {
                             </div>
                         </div>
                     ))}
+                </div>
                 </div>
             )}
         </div>
