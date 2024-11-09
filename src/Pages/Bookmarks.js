@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Collections() {
     const [Bookmarks, setBookmarks] = useState([]);
-    
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -11,6 +11,11 @@ function Collections() {
         console.log('Loaded bookmarks from localStorage:', savedBoomarks);
         setBookmarks(savedBoomarks);
     }, []);
+
+    const BookmarkClick = (bookmark) => {
+        localStorage.setItem('selectedBoomark', JSON.stringify(bookmark));
+        navigate('/');
+    };
 
 
     const ClearBookmarks = () => {
@@ -31,7 +36,10 @@ function Collections() {
         </button>
         <div className="bookmark-list">
           {Bookmarks.map((bookmark, index) => (
-            <div className="bookmark-item" key={index}>
+            <div 
+                className="bookmark-item" 
+                key={index}
+                onClick={() => BookmarkClick(bookmark)}>
               <div className="bookmark-input">
                 <strong>Original Text:</strong> {bookmark.input}
               </div>

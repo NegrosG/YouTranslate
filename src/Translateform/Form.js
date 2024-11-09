@@ -1,5 +1,5 @@
 import TextInput from './TextInput'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SelectLang from '../Language/SelectLang';
 import TranslateInput from '../ExternalService/TranslateInput';
 import TranslateButton from './TranslateButton';
@@ -15,6 +15,15 @@ function Form() {
   const [Error, setError] = useState(null); 
 
   console.log(Input); 
+
+  useEffect(() => {
+    const selectedBoomark = JSON.parse(localStorage.getItem('selectedBookmark'));
+    if (selectedBoomark) {
+      setInput(selectedBoomark.input);
+      setTranslatedInput(selectedBoomark.translation);
+      localStorage.removeItem('selectedBookmark');
+    }
+  }, []);
 
   const GetTranslation = async () => {
     setLoading(true);
