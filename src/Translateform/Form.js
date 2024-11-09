@@ -26,16 +26,10 @@ function Form() {
       const translations = await TranslateInput(Input, FromLang, ToLang);
       setTranslatedInput(translations);
 
-      const newTranslation = {
-        inputtext: Input,
-        translatedtext: translations,
-        fromlang: FromLang,
-        tolang: ToLang
-      };
 
-      if (translations && ! Error) {
+      if (translations && !Error) {
       const savedHistory = JSON.parse(localStorage.getItem('translationHistory')) || [];
-      const updatedHistory = [newTranslation, ...savedHistory];
+      const updatedHistory = [{ input: Input, translation: translations }, ...savedHistory];
       localStorage.setItem('translationHistory', JSON.stringify(updatedHistory));
     } console.log('Updated history in localStorage:', JSON.parse(localStorage.getItem('translationHistory')));
 

@@ -12,19 +12,22 @@ function History() {
 
     return (
         <div className='history-page'>
-            <h1>Translation History</h1>
+            <h2>History</h2>
             {History.lenght === 0 ? (
                 <p>No translation found.</p>
             ) : (
-                <ul>
+                <div className="history-list">
                     {History.map((item, index) => (
-                        <li key={index}>
-                            <p><strong>Original Text:</strong>{item.inputtext}</p>
-                            <p><strong>Translated Text:</strong>{item.translatedtext}</p>
-                            <p><strong>From:</strong>{item.fromlang} <strong>To:</strong>{item.tolang}</p>
-                        </li>
+                        <div className="history-item" key={index}>
+                            <div className="history-input">
+                                <strong>Input:</strong> {item.input}
+                            </div>
+                            <div className="history-translation">
+                                <strong>Translation:</strong> {item.translation}
+                            </div>
+                        </div>
                     ))}
-                </ul>
+                </div>
             )}
         </div>
     );
