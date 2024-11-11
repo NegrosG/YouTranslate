@@ -7,13 +7,20 @@ function Collections() {
 
 
     useEffect(() => {
-        const savedBoomarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-        console.log('Loaded bookmarks from localStorage:', savedBoomarks);
-        setBookmarks(savedBoomarks);
+        const savedBookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+        console.log('Loaded bookmarks from localStorage:', savedBookmarks);
+        setBookmarks(savedBookmarks);
     }, []);
 
     const BookmarkClick = (bookmark) => {
-        localStorage.setItem('selectedBoomark', JSON.stringify(bookmark));
+      const bookmarkwithlang ={
+        ...bookmark,
+        fromLang: bookmark.fromLang || 'es',
+        toLang: bookmark.toLang || 'fr'
+      };
+
+        localStorage.setItem('selectedBookmark', JSON.stringify(bookmarkwithlang));
+        console.log("Selected Bookmark stored in localStorage:", JSON.parse(localStorage.getItem('selectedBookmark')));
         navigate('/');
     };
 

@@ -1,0 +1,23 @@
+.youtranslate-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.text-content, .image-section{
+    flex: 1;
+    max-width: 50%;
+}
+
+.text-content {
+    padding-right: 20px;
+}
+
+.image-section {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}

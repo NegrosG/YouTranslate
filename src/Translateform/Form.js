@@ -4,6 +4,7 @@ import SelectLang from '../Language/SelectLang';
 import TranslateInput from '../ExternalService/TranslateInput';
 import TranslateButton from './TranslateButton';
 import TranslatedDisplay from './TranslatedDisplay';
+import { HiOutlineSwitchHorizontal } from "react-icons/hi";
 import './Form.css';
 
 function Form() {
@@ -17,11 +18,24 @@ function Form() {
   console.log(Input); 
 
   useEffect(() => {
-    const selectedBoomark = JSON.parse(localStorage.getItem('selectedBookmark'));
-    if (selectedBoomark) {
-      setInput(selectedBoomark.input);
-      setTranslatedInput(selectedBoomark.translation);
-      localStorage.removeItem('selectedBookmark');
+    const selectedBookmark = JSON.parse(localStorage.getItem('selectedBookmark'));
+
+    if (selectedBookmark) {
+      console.log("Bookmark loaded in Form:", selectedBookmark);
+      setInput(selectedBookmark.input);
+      setTranslatedInput(selectedBookmark.translation);
+
+
+      setFromLang(selectedBookmark.fromLang);
+      console.log("Fromlang set to:", selectedBookmark.fromLang);
+      setToLang(selectedBookmark.toLang);
+      console.log("ToLang set to:", selectedBookmark.toLang);
+
+
+      setTimeout(() => {
+        console.log("clearing selectedBookmark from localstorage");
+        localStorage.removeItem('selectedBookmark');
+      }, 100);
     }
   }, []);
 
@@ -55,12 +69,31 @@ function Form() {
     }
     setLoading(false);
   };
+
+  const SwitchLang = () => {
+    const temp = FromLang;
+    setFromLang(ToLang);
+    setToLang(temp);
+
+
+    const tempText = Input;
+    setInput(TranslatedInput);
+    setTranslatedInput(tempText);
+  };
+
+
   return (
     <div className="translate-form">
       <div className='language-dropdown'>
-        <SelectLang Lang={FromLang} setLang={setFromLang}/>
-        <SelectLang Lang={ToLang} setLang={setToLang}/>
+          <SelectLang Lang={FromLang} setLang={setFromLang}/>
+
+          <button onClick={SwitchLang} className='switch-button'><HiOutlineSwitchHorizontal/>
+            <span className='switch-tool'>Switch</span>
+          </button>
+          
+          <SelectLang Lang={ToLang} setLang={setToLang}/>
       </div>
+
       <div className='form-container'>
         <TextInput Input={Input} setInput={setInput}/>
         <TranslateButton onClick={GetTranslation} disabled={!Input || Loading}/>

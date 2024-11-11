@@ -11,14 +11,6 @@
   --font-poppins: 'Poppins', sans-serif;
 }
 
-* {
-  outline: 1px solid rgb(30, 95, 236); /* Adds a semi-transparent blue outline to all elements */
-  box-sizing: border-box; /* Ensures padding and border are included in width/height */
-}
-*::before,
-*::after {
-  outline: 1px solid rgba(0, 255, 0, 0.5); /* Outlines pseudo-elements */
-}
 
 body *
 {
@@ -37,8 +29,8 @@ body *:not(.sidebar, .sidebar *) {
   margin-left: 60px;
   background-color: var(--primary-color);
   height: 100vh;
-  padding-top: 35PX;
-  padding-left: 50px;
+  padding-top: 50px;
+  padding-left: 70px;
   box-sizing: border-box;
   overflow-y: auto;
   font-family: var(--font-poppins);

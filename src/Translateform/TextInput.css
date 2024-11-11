@@ -11,6 +11,9 @@
     box-sizing: border-box;
 }
 .text-input {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: var(--font-roboto);
     width: 90%;
     min-height: 200px;
     max-height: 70%;
@@ -33,4 +36,19 @@
     align-items: center;
     gap: 10px;
     margin-left: 25px;
+}
+
+.clear-button {
+    position: absolute;
+    top: 10px;
+    right: 4px;
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.clear-button:hover {
+    color: #333;
 }

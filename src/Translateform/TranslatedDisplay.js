@@ -40,8 +40,6 @@ function TranslatedDisplay ({ inputtext, translatedtext, error }) {
         <div className='translation-form'>
             <textarea className='translated'
             value={error || translatedtext}
-            rows="12"
-            cols="45"
             placeholder='Your text will be displayed here'
             disabled
             />
