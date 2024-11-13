@@ -33,7 +33,7 @@ function Collections() {
     return (
         
     <div className="bookmarks-page">
-    <h2>Bookmarks</h2>
+    <h2>My Collections</h2>
     {Bookmarks.length === 0 ? (
       <p>No bookmarks found.</p>
     ) : (
