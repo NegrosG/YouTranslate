@@ -17,7 +17,7 @@ function Home() {
                         Translator for 60+ languages
                     </h2>
                     <h5>
-                        YouTranslate &mdash; synchronized translation for over 60 languages, predictive typing, pronounciation and many features wth numerous to come, Powered by DeepL.
+                        YouTranslate &mdash; synchronized translation for over 60 languages, predictive typing, Voice over, Bookmarking with numerous features to come, Powered by DeepL.
                     </h5>
                 </div>
                 <div className='image-content'>

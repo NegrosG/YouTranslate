@@ -85,19 +85,35 @@ function Form() {
   return (
     <div className="translate-form">
       <div className='language-dropdown'>
-          <SelectLang Lang={FromLang} setLang={setFromLang}/>
-
-          <button onClick={SwitchLang} className='switch-button'><HiOutlineSwitchHorizontal/>
+          <SelectLang 
+            Lang={FromLang} 
+            setLang={setFromLang}
+          />
+          <button onClick={SwitchLang} className='switch-button'>
+            <HiOutlineSwitchHorizontal className='switch-icon'/>
             <span className='switch-tool'>Switch</span>
           </button>
-          
-          <SelectLang Lang={ToLang} setLang={setToLang}/>
+          <SelectLang 
+            Lang={ToLang} 
+            setLang={setToLang}
+          />
       </div>
 
       <div className='form-container'>
-        <TextInput Input={Input} setInput={setInput}/>
-        <TranslateButton onClick={GetTranslation} disabled={!Input || Loading}/>
-        <TranslatedDisplay inputtext={Input} translatedtext={TranslatedInput} error={Error}/>
+        <TextInput 
+          Input={Input} 
+          setInput={setInput} 
+          TranslatedInput={TranslateInput}
+          setTranslatedInput={setTranslatedInput}
+        />
+        <TranslateButton 
+          onClick={GetTranslation} 
+          disabled={!Input || Loading}
+          />
+        <TranslatedDisplay 
+          inputtext={Input} 
+          translatedtext={TranslatedInput} error={Error}
+        />
       </div>
     </div>
   );

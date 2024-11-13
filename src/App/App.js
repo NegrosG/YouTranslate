@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from '../Pages/home'
 import About from '../Pages/About';
 import Collections from '../Pages/Bookmarks';
@@ -13,9 +13,9 @@ import './App.css';
 function App() {
   return (
     <Router>
-    <div>
+    <div className='app-container'>
     <Sidebar/>
-      <div className='app-container'>
+      <div className='main-content'>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>

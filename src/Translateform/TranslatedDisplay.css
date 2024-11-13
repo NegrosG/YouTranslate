@@ -7,23 +7,34 @@
     width: 100%;
     max-width: 600px;
     margin: 0;
-    padding: 0;
+    padding-top: 12px;
+    padding-left: 15px;
     box-sizing: border-box;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: var(--secondary-color);
 }
 
 
 .translated {
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-family: var(--font-roboto);
+    font-size: 1.5rem;
+    font-family: var(--font-poppins);
     width: 90%;
     min-height: 200px;
     max-height: 70%;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding: 5px;
     box-sizing: border-box;
     resize: none;
+    background-color: inherit;
+    border: none;
+}
+
+.translated::placeholder {
+    color: #888;
+    opacity: 0.7;
+    text-align: center;
 }
 
 .translation-form button {
@@ -31,4 +42,29 @@
     border: none;
     cursor: pointer;
     padding: 0;
+}
+
+.speech-icon-translated {
+    position: absolute;
+    background: transparent;
+    border: none;
+    padding-left: 30px;
+    bottom: 7px;
+}
+
+.bookmark-btn  {
+    position: absolute;
+    background: transparent;
+    bottom: 7px;
+    right: 65px;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
 }

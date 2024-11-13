@@ -1,21 +1,15 @@
 import React from 'react';
 import {useSpeechSynthesis} from 'react-speech-kit';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faVolumeUp } from '@fortawesome/free-solid-svg-icons';
+import { HiSpeakerWave } from "react-icons/hi2";
+import './tts.css';
 
 function TextToSpeech ({ text }) {
     const {speak} = useSpeechSynthesis();
 
     return (
-        <div style={{
-            display: 'inline-block',
-            cursor: 'pointer'
-        }}><FontAwesomeIcon
-                icon={faVolumeUp}
-                size="lg"
-                onClick={() => speak({text})}
-                title="Speaker"/>
-        </div>
+        <button>
+            <HiSpeakerWave onClick={() => speak({text})} size={25}/>
+        </button>
     );
 }
 

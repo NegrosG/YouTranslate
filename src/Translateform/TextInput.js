@@ -6,7 +6,7 @@ import { MdOutlineClear } from "react-icons/md";
 import TextToSpeech from '../TTS & STT/TextToSpeech';
 
 
-function TextInput({Input, setInput}) {
+function TextInput({Input, setInput, TranslatedInput, setTranslatedInput}) {
     const maxLength = 1000;
 
 
@@ -21,18 +21,24 @@ function TextInput({Input, setInput}) {
             {Input && (
                 <button 
                     className='clear-button'
-                    onClick={() => setInput('')}
+                    onClick={() => { 
+                        setInput('');
+                        setTranslatedInput('');
+                    }}
                 ><MdOutlineClear/>
                 </button>
             )}
             <div className='feature-box'>
-                <TextToSpeech className="text-speech" text={Input} />
+                <TextToSpeech className="speech-icon" text={Input} />
+                    <span className='speech-tool'>Voice Over
+                    </span>
                 <button  onClick={() => CopyText(Input)}>
-                    <PiCopySimpleLight size={26} className='copy'/>
+                    <PiCopySimpleLight size={25} className='copy'/>
+                    <span className='copy-tool'>Copy</span>
                 </button>
+            </div>
             <div className='character-counter'>
                 {Input.length} / {maxLength}
-            </div>
             </div>
         </div>
     );

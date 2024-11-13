@@ -39,16 +39,18 @@ function TranslatedDisplay ({ inputtext, translatedtext, error }) {
     return (
         <div className='translation-form'>
             <textarea className='translated'
-            value={error || translatedtext}
-            placeholder='Your text will be displayed here'
-            disabled
+                value={error || translatedtext}
+                placeholder='Your text will be displayed here'
+                disabled
             />
-            <TextToSpeech className='text-speech' text={translatedtext} />
-            <button className='copy-button' onClick={() => CopyText(translatedtext)}>
-                <PiCopySimpleFill size={26}/>
-            </button>
-            <button className='bookmark-button' onClick={createBookmark}>
+            <div className='speech-icon-translated'>
+                <TextToSpeech text={translatedtext} />
+            </div>
+            <button className='bookmark-btn' onClick={createBookmark}>
                 {isBookmarked ? <IoBookmark size={25}/> : <IoBookmarkOutline size={25}/>}
+            </button>
+            <button className='copy-btn' onClick={() => CopyText(translatedtext)}>
+                <PiCopySimpleFill size={26}/>
             </button>
         </div>
     );
