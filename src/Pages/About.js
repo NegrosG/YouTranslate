@@ -1,7 +1,9 @@
 import React from 'react';
 import './About.css';
+import Footer from '../Footer/Footer';
+import Popular from '../PopularTranslation/Popular';
 
-const About = () => {
+const About = ({ LanguageSelect }) => {
   return (
     <div className="about-container">
       <h1>About YouTranslate &#10132;</h1>
@@ -38,6 +40,8 @@ const About = () => {
       <p>
         We're planning to add features like voice-to-text, dark mode, more languages, and enhanced accuracy to make this tool even more valuable.
       </p>
+      <Popular onSelectLanguage={LanguageSelect}/>
+      <Footer/>
     </div>
   );
 };

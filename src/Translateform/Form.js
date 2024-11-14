@@ -1,14 +1,14 @@
-import TextInput from './TextInput'
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom'; // Ensure correct import for useLocation
+import TextInput from './TextInput';
 import SelectLang, { languages } from '../Language/SelectLang';
 import TranslateInput from '../ExternalService/TranslateInput';
 import TranslateButton from './TranslateButton';
 import TranslatedDisplay from './TranslatedDisplay';
 import { HiOutlineSwitchHorizontal } from "react-icons/hi";
 import './Form.css';
-import { useLocation } from 'react-router';
 
-function Form() {
+function Form({ fromLang, focusInput }) {
   const [Input, setInput] = useState('');
   const [TranslatedInput, setTranslatedInput] = useState('');
   const [FromLang, setFromLang] = useState("en");
@@ -18,11 +18,15 @@ function Form() {
   const inputRef = useRef(null);
   const location = useLocation();
 
-
   useEffect(() => {
+
+    if (location.state?.fromLang) {
+      setFromLang(location.state.fromLang);
+    }
     if (location.state?.focusInput) {
       inputRef.current?.focus();
     }
+
 
     const selectedBookmark = JSON.parse(localStorage.getItem('selectedBookmark'));
 
@@ -39,7 +43,7 @@ function Form() {
 
 
       setTimeout(() => {
-        console.log("clearing selectedBookmark from localstorage");
+        console.log("Clearing selectedBookmark from localStorage");
         localStorage.removeItem('selectedBookmark');
       }, 100);
     }
@@ -48,7 +52,7 @@ function Form() {
   const GetTranslation = async () => {
     setLoading(true);
     setError('');
-    setTranslatedInput("Translating...")
+    setTranslatedInput("Translating...");
 
 
     try {
@@ -66,14 +70,16 @@ function Form() {
           const sourceLanguage = languages.find(lang => lang.code === FromLang)?.name || FromLang;
           const targetLanguage = languages.find(lang => lang.code === ToLang)?.name || ToLang;
 
-          const updatedHistory = [{ input: Input, translation: translations, sourceLanguage, targetLanguage }, ...savedHistory];
+          const updatedHistory = [
+            { input: Input, translation: translations, sourceLanguage, targetLanguage },
+            ...savedHistory
+          ];
           localStorage.setItem('translationHistory', JSON.stringify(updatedHistory));
         }
-      } 
+      }
       console.log('Updated history in localStorage:', JSON.parse(localStorage.getItem('translationHistory')));
-
-    } catch(err) {
-      setError("Translation failure. Please try again")
+    } catch (err) {
+      setError("Translation failure. Please try again");
       setTranslatedInput('');
     }
     setLoading(false);
@@ -111,6 +117,7 @@ function Form() {
       <div className={`form-container ${Input ? 'has-input' : ''}`}>
         <TextInput 
           Input={Input} 
+          ref={inputRef}
           setInput={setInput} 
           TranslatedInput={TranslateInput}
           setTranslatedInput={setTranslatedInput}

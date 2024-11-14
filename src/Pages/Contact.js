@@ -1,9 +1,12 @@
 import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import Popular from '../PopularTranslation/Popular';
+import Footer from '../Footer/Footer';
 import './Contact.css';
 
-const Contact = () => {
+const Contact = ({ LanguageSelect }) => {
   return (
+    <div>
     <div className="contact-page">
       <div className="feedback-section">
         <h1>Leave a Feedback &#10132;</h1>
@@ -52,6 +55,9 @@ const Contact = () => {
           <li><a href="#" target="_blank" rel="noopener noreferrer"><FaInstagram /> Instagram</a></li>
         </ul>
       </div>
+    </div>
+    <Popular onSelectLanguage={LanguageSelect}/>
+    <Footer/>
     </div>
   );
 };

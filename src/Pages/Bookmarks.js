@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 //import { languages } from '../Language/SelectLang';
 import { HiPlus } from 'react-icons/hi';
 import './Bookmarks.css';
+import Footer from '../Footer/Footer';
+import Popular from '../PopularTranslation/Popular';
 
-function Collections() {
+function Collections({ LanguageSelect }) {
     const [Bookmarks, setBookmarks] = useState([]);
     const navigate = useNavigate();
 
@@ -69,6 +71,8 @@ function Collections() {
       </div>
     </div>
   )}
+  <Popular onSelectLanguage={LanguageSelect}/>
+  <Footer/>
   </div>
   );
 }

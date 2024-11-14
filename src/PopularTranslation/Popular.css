@@ -1,0 +1,27 @@
+.popular-trans {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    max-width: 1200px;
+    border-radius: 8px;
+    margin: 0 auto;
+    background-color: rgb(99, 96, 96);
+}
+
+.trans-link {
+    cursor: pointer;
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+
+.trans-link:hover {
+    color: #869ebd;
+    text-decoration: underline;
+}

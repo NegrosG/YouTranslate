@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './History.css';
+import Footer from '../Footer/Footer';
+import Popular from '../PopularTranslation/Popular';
 
-function History() {
+function History({ LanguageSelect }) {
     const [History, setHistory] = useState([]);
     const [ModalOpen, setModalopen] = useState(false);
     const [ModalContent, setModalContent] = useState({
@@ -70,6 +72,8 @@ function History() {
                     </div>
                 </div>
             )}
+            <Popular onSelectLanguage={LanguageSelect}/>
+            <Footer/>
         </div>
     );
 }
