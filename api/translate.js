@@ -23,7 +23,6 @@ export default async function handler(req, res) {
             res.status(200).json(response.data);
         } catch (error) {
             console.error("Error in serverless function:", error.message);
-            // Log the full error details if available
             if (error.response) {
                 console.error("Error response data:", error.response.data);
                 res.status(error.response.status).json({ error: error.response.data });
