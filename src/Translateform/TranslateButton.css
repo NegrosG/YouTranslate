@@ -50,18 +50,15 @@
 }
 
 .translate-button .button-icon {
-    font-size: 4vw; /* Icon size will scale with viewport width */
-    transition: font-size 0.2s ease; /* Smooth resizing */
+    font-size: 4vw; 
+    transition: font-size 0.2s ease;
 }
 
-/*@media (min-width: 768px) {
-    .translate-button .button-icon {
-        font-size: 4vw;
+@media (max-width: 800px) {
+    .translate-button {
+        display: none;
+    }
+    .form-container.has-input .translate-button {
+        display: block;
     }
 }
-
-@media (max-width: 1200px) {
-    .translate-button .button-icon {
-        font-size: 8vw;
-    }
-}*/

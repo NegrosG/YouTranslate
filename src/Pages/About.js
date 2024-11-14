@@ -1,34 +1,42 @@
 import React from 'react';
+import './About.css';
 
 const About = () => {
   return (
-    <div>
-      <h1>About YouTranslate</h1>
+    <div className="about-container">
+      <h1>About YouTranslate &#10132;</h1>
       <p>
-        Our Language Translation App is designed to make communication easier across language barriers. This project was created with the goal of helping users quickly translate text from one language to another, whether they’re learning a new language, traveling, or communicating with friends and colleagues across the globe.
+        At YouTranslate, we're all about making it easy for people to connect, no matter what language they speak.
+        Our goal is to offer translation services that are accurate and reliable, so anyone can communicate effortlessly. Built on a commitment to quality and happy customers.
+      </p>
+      
+      <h2 className="our story">Our Story &rarr;</h2>
+      <p>
+        It all started with the idea of connecting people and businesses, no matter where they were or what language they spoke. We saw the need for high-quality translation services growing as the world became more connected, so we decided to build a platform that could bridge those language gaps.
       </p>
 
-      <h2>Our Mission</h2>
-      <p>
-        To bridge language gaps by providing accurate and user-friendly translations that allow for smoother communication between speakers of different languages. We believe language should never be a barrier to connection, collaboration, or understanding.
-      </p>
-
-      <h2>Project Highlights</h2>
+      <h2 className="our values">Our Values &rarr;</h2>
       <ul>
-        <li><strong>Built with React:</strong> The app was created using the latest in web development technology, React, ensuring a responsive and seamless user experience.</li>
-        <li><strong>Multiple Language Support:</strong> This app supports translations across various popular languages, allowing users to communicate more broadly.</li>
-        <li><strong>User-Friendly Design:</strong> We’ve prioritized a simple, intuitive design, making it accessible to users of all ages and technical skill levels.</li>
-        <li><strong>Real-Time Translations:</strong> Get immediate translations for text input, with support for sentence and paragraph translations to aid in both formal and informal conversations.</li>
+        <li><strong>Integrity:</strong> I always aim to do my best, ensuring every translation is top-notch and reliable.</li>
+        <li><strong>Excellence:</strong> I focus on creativity and innovation to make my services better and keep up with industry trends.</li>
       </ul>
 
-      <h2>Our Vision</h2>
+      <h2 className="project highlight">Project Highlights &rarr;</h2>
+      <ul>
+        <li><strong>Built with React:</strong> This app is developed using the latest tech like React for a smooth experience.</li>
+        <li><strong>Multiple Language Support:</strong> Supports translations for many popular languages for global connectivity.</li>
+        <li><strong>User-Friendly Design:</strong> A design that’s simple and accessible to all users.</li>
+        <li><strong>Real-Time Translations:</strong> Instant translations for casual or formal conversations.</li>
+      </ul>
+
+      <h2 className="vision">Our Vision &rarr;</h2>
       <p>
-        In an increasingly interconnected world, we want this app to serve as a stepping stone toward understanding and embracing cultural diversity. By enabling easy access to translation, we aim to bring people together and encourage cross-cultural communication.
+        "As the world connects further, we want this app to foster appreciation for different cultures. By making translation accessible, we’re aiming to bring people closer."
       </p>
 
-      <h2>Future Goals</h2>
+      <h2 className="future">Future Improvements &rarr;</h2>
       <p>
-        As this project grows, we’re looking to integrate additional features, such as voice-to-text translations, more language options, and improved accuracy using AI models. We hope to continue improving this tool and making it even more useful for users around the world.
+        We're planning to add features like voice-to-text, dark mode, more languages, and enhanced accuracy to make this tool even more valuable.
       </p>
     </div>
   );

@@ -1,11 +1,12 @@
 import TextInput from './TextInput'
-import React, { useState, useEffect } from 'react';
-import SelectLang from '../Language/SelectLang';
+import React, { useState, useEffect, useRef } from 'react';
+import SelectLang, { languages } from '../Language/SelectLang';
 import TranslateInput from '../ExternalService/TranslateInput';
 import TranslateButton from './TranslateButton';
 import TranslatedDisplay from './TranslatedDisplay';
 import { HiOutlineSwitchHorizontal } from "react-icons/hi";
 import './Form.css';
+import { useLocation } from 'react-router';
 
 function Form() {
   const [Input, setInput] = useState('');
@@ -13,11 +14,16 @@ function Form() {
   const [FromLang, setFromLang] = useState("en");
   const [ToLang, setToLang] = useState("fr");
   const [Loading, setLoading] = useState(false);
-  const [Error, setError] = useState(null); 
+  const [Error, setError] = useState(null);
+  const inputRef = useRef(null);
+  const location = useLocation();
 
-  console.log(Input); 
 
   useEffect(() => {
+    if (location.state?.focusInput) {
+      inputRef.current?.focus();
+    }
+
     const selectedBookmark = JSON.parse(localStorage.getItem('selectedBookmark'));
 
     if (selectedBookmark) {
@@ -37,7 +43,7 @@ function Form() {
         localStorage.removeItem('selectedBookmark');
       }, 100);
     }
-  }, []);
+  }, [location.state]);
 
   const GetTranslation = async () => {
     setLoading(true);
@@ -57,7 +63,10 @@ function Form() {
         );
 
         if (!alreadyExist) {
-          const updatedHistory = [{ input: Input, translation: translations }, ...savedHistory];
+          const sourceLanguage = languages.find(lang => lang.code === FromLang)?.name || FromLang;
+          const targetLanguage = languages.find(lang => lang.code === ToLang)?.name || ToLang;
+
+          const updatedHistory = [{ input: Input, translation: translations, sourceLanguage, targetLanguage }, ...savedHistory];
           localStorage.setItem('translationHistory', JSON.stringify(updatedHistory));
         }
       } 
@@ -99,7 +108,7 @@ function Form() {
           />
       </div>
 
-      <div className='form-container'>
+      <div className={`form-container ${Input ? 'has-input' : ''}`}>
         <TextInput 
           Input={Input} 
           setInput={setInput} 
@@ -110,7 +119,7 @@ function Form() {
           onClick={GetTranslation} 
           disabled={!Input || Loading}
           />
-        <TranslatedDisplay 
+        <TranslatedDisplay
           inputtext={Input} 
           translatedtext={TranslatedInput} error={Error}
         />

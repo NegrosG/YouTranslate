@@ -26,6 +26,12 @@
     box-sizing: border-box;
     border: none;
     resize: none;
+    outline: none;
+    transition: font-size 0.2s ease;
+}
+
+.text-input.shrink-text {
+    font-size: 1rem;
 }
 
 .text-form button {
@@ -48,8 +54,8 @@
     align-items: center;
     gap: 10px;
     padding-left: 25px;
-    /*padding-bottom: 3px;
-    bottom: 7px;*/
+    padding-bottom: 2px;
+    bottom: 7px;
 }
 
 .speech-icon {

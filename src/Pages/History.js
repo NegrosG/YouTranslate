@@ -4,7 +4,12 @@ import './History.css';
 function History() {
     const [History, setHistory] = useState([]);
     const [ModalOpen, setModalopen] = useState(false);
-    const [ModalContent, setModalContent] = useState("");
+    const [ModalContent, setModalContent] = useState({
+        sourcetext: "",
+        targettext: "",
+        sourceLanguage: "",
+        targetLanguage: ""
+    });
 
 
     useEffect(() => {
@@ -18,19 +23,19 @@ function History() {
         setHistory([]);
     }
 
-    const openModal = (content) => {
-        setModalContent(content);
+    const openModal = (sourcetext, targettext, sourceLanguage, targetLanguage) => {
+        setModalContent({ sourcetext, targettext, sourceLanguage, targetLanguage });
         setModalopen(true);
     }
 
     const closeModal = () => {
         setModalopen(false);
-        setModalContent("");
+        setModalContent({ sourcetext: "", targettext: "", sourceLanguage: "", targetLanguage: "" });
     }
 
     return (
         <div className='history-page'>
-            <h2>Translation history &rarr;</h2>
+            <h2>Translation history &#10132;</h2>
             {History.length === 0 ? (
                 <p>No translation found.</p>
             ) : (
@@ -42,13 +47,13 @@ function History() {
                     {History.map((item, index) => (
                         <div className="history-item" 
                             key={index}
-                            onClick={() => openModal(`${item.input}\n${item.translation}`)}    
+                            onClick={() => openModal(item.input, item.translation, item.sourceLanguage, item.targetLanguage)}    
                         >
                             <div className="history-input">
-                                <strong>Input:</strong> {item.input}
+                                <strong>{item.sourceLanguage}:</strong> {item.input}
                             </div>
                             <div className="history-translation">
-                                <strong>Translation:</strong> {item.translation}
+                                <strong>{item.targetLanguage}:</strong> {item.translation}
                             </div>
                         </div>
                     ))}
@@ -59,8 +64,9 @@ function History() {
             {ModalOpen && (
                 <div className='modal-overlay' onClick={closeModal}>
                     <div className='modal-content' onClick={(e) => e.stopPropagation}>
-                        <button onClick={closeModal} className='close-modal'><strong>X</strong></button>
-                        <p>{ModalContent}</p>
+                        <button onClick={closeModal} className='close-modal'><strong>x</strong></button>
+                        <p><strong>{ModalContent.sourceLanguage}:</strong><br />{ModalContent.sourcetext}</p>
+                        <p><strong>{ModalContent.targetLanguage}:</strong><br />{ModalContent.targettext}</p>
                     </div>
                 </div>
             )}

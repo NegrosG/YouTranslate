@@ -1,12 +1,7 @@
 import React, { useEffect } from 'react';
 import './SelectLang.css';
 
-function SelectLang({ Lang, setLang }) {
-    useEffect(() => {
-        console.log("SelectLang component received Lang:", Lang);
-    }, [Lang]);
-
-    const languages = [
+ export const languages = [
         { code: "en", name: "English" },
         { code: "fr", name: "French" },
         { code: "es", name: "Spanish" },
@@ -14,7 +9,6 @@ function SelectLang({ Lang, setLang }) {
         { code: "pt", name: "Portuguese" },
         { code: "ar", name: "Arabic" },
         { code: "bg", name: "Bulgarian" },
-        { code: "ar", name: "Arabic" },
         { code: "cs", name: "Czech" },
         { code: "da", name: "Danish" },
         { code: "el", name: "Greek" },
@@ -42,7 +36,13 @@ function SelectLang({ Lang, setLang }) {
         { code: "pt-br", name: "Portuguese(Brazillian)" },
         { code: "zh-hans", name: "Chinese(simplified)" },
         { code: "zh-hant", name: "Chinese(traditional" },
-    ]
+    ];
+
+function SelectLang({ Lang, setLang }) {
+    useEffect(() => {
+        console.log("SelectLang component received Lang:", Lang);
+    }, [Lang]);
+
 
     const orderedLanguages = [
         ...languages.filter((lang) => lang.code === Lang),

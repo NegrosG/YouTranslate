@@ -8,6 +8,7 @@
 
 .language-select {
     padding: 18px;
+    font-family: var(--font-roboto);
     font-size: 1rem;
     width: 100%;
     text-transform: uppercase;
@@ -19,6 +20,7 @@
     border: none;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    outline: none;
 }
 
 .language-select:hover {
@@ -26,10 +28,12 @@
 }
 .selected-option {
     font-weight: bold;
+    font-family: var(--font-roboto);
     text-transform: uppercase;
 }
 
 .unselected-option {
+    font-family: var(--font-lato);
     text-transform: lowercase;
 }
 

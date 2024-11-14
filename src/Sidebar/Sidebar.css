@@ -74,9 +74,16 @@
     opacity: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 928px) {
     .sidebar {
         width: 60px;
         transition: width 1s ease-in-out;
+    }
+}
+
+@media (max-width: 490px) {
+    .sidebar {
+        visibility: collapse;
+        transition: width 2s ease-in-out;
     }
 }

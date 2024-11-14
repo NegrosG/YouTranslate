@@ -1,6 +1,14 @@
+.animated {
+    animation: slideUp 1s ease-in-out;
+  }
+  
 .youtranslate-home {
     padding-bottom: 15px;
     font-family: var(--font-roboto);
+}
+
+.youtranslate-home h1 {
+    color: #1d72b8;
 }
 
 .youtranslate-home h1 {
@@ -8,13 +16,7 @@
     font-size: 2rem;
     padding-bottom: 0;
     margin-bottom: 0;
-}
-
-.youtranslate-home p {
-    margin: 0;
-    font-size: 1rem;
-    padding-left: 50px;
-    font-style: italic;
+    padding-left: 15px;
 }
 
 .youtranslate-content {

@@ -5,10 +5,9 @@ import './Home.css'
 
 function Home() {
     return (
-        <div>
+        <div className='animated'>
             <div className='youtranslate-home'>
             <h1>YouTranslate</h1>
-            <p>The world is closer to you.</p>
             </div>
             <Form />
             <section className='youtranslate-content'>

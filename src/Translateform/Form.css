@@ -14,6 +14,12 @@
     width: 100%;
     gap: 0.5rem;
 }
+
+@media (max-width: 800px) {
+    .language-dropdown {
+        gap: 0;
+    }
+}
 .switch-icon {
     padding: 0;
     width: 100%;

@@ -2,12 +2,13 @@
     position: relative;
     width: 100%;
     padding: 8px 0;
+    color: rgb(58, 57, 57);
     text-align: center;
-    font-size: 0.9rem;
-    font-family: var(--font-lato);
+    font-size: 0.8rem;
+    font-style: italic;
+    font-family: var(--font-raleway);
     margin-left: 50px;
-    padding-left: 70px;
-    border-top: 1px solid #444;
+    border-top: 1px solid #e5ebea;
     margin-top: auto;
 }
 

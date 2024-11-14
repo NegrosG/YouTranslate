@@ -1,51 +1,57 @@
 import React from 'react';
+import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import './Contact.css';
 
 const Contact = () => {
   return (
-    <div>
-      <h1>Contact Us</h1>
-      <p>
-        We’d love to hear from you! Whether you have feedback, questions, or just want to share your experience with our app, feel free to reach out. Our team is here to support you and make this app as helpful as possible.
-      </p>
+    <div className="contact-page">
+      <div className="feedback-section">
+        <h1>Leave a Feedback &#10132;</h1>
+        <h4>Feedback form &rarr;</h4>
+        <p className="feedback-instruction">
+          We love feedbacks, we hope to hear from you.
+        </p>
 
-      <h2>Contact Information</h2>
-      <ul>
-        <li><strong>Email:</strong> support@translationapp.com</li>
-        <li><strong>Phone:</strong> +1 (555) 123-4567</li>
-        <li><strong>Available:</strong> Monday to Friday, 9 AM to 5 PM</li>
-      </ul>
+        <form className="feedback-form" action="mailto:negrosmartins@gmail.com" method="GET" enctype="text/plain">
+          <div className="form-group">
+            <label htmlFor="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
 
-      <h2>Social Media</h2>
-      <p>Stay connected with us on social media for the latest updates and improvements:</p>
-      <ul>
-        <li><strong>Facebook:</strong> <a href="#" target="_blank" rel="noopener noreferrer">TranslationAppFacebook</a></li>
-        <li><strong>Twitter:</strong> <a href="#" target="_blank" rel="noopener noreferrer">TranslationAppTwitter</a></li>
-        <li><strong>Instagram:</strong> <a href="#" target="_blank" rel="noopener noreferrer">TranslationAppInsta</a></li>
-      </ul>
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
 
-      <h2>Feedback Form</h2>
-      <p>Your feedback is invaluable to us as we work to improve and expand the app’s features. Please use the form below to share any suggestions or comments directly with us.</p>
+          <div className="form-group">
+            <label htmlFor="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
 
-      <form>
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="name">Name:</label><br />
-          <input type="text" id="name" name="name" style={{ width: '100%', padding: '8px', marginTop: '5px' }} />
-        </div>
+          <button type="submit" className="submit-button">Submit Feedback</button>
+        </form>
+      </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="email">Email:</label><br />
-          <input type="email" id="email" name="email" style={{ width: '100%', padding: '8px', marginTop: '5px' }} />
-        </div>
+      <div className="contact-details">
+        <h1>Contact Information &#10132;</h1>
+        <p>
+        We welcome your feedback and inquiries. Whether you have questions, suggestions, or would like to share your experience with our app, please don’t hesitate to reach out. Our team is dedicated to supporting you and enhancing the app to best meet your needs.
+        </p>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="message">Message:</label><br />
-          <textarea id="message" name="message" rows="4" style={{ width: '100%', padding: '8px', marginTop: '5px' }}></textarea>
-        </div>
+        <h3>Contact Information &#10132;</h3>
+        <ul>
+          <li><strong>Email:</strong> Negrosmartins@gmail.com</li>
+          <li><strong>Phone:</strong> +2347073030090</li>
+        </ul>
 
-        <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: 'white', border: 'none', cursor: 'pointer' }}>
-          Send
-        </button>
-      </form>
+        <h3>&#10132;</h3>
+        <p>Stay connected with us on social media.</p>
+        <ul className='social-media-icons'>
+        <li><a href="#" target="_blank" rel="noopener noreferrer"><FaFacebook /> Facebook</a></li>
+          <li><a href="#" target="_blank" rel="noopener noreferrer"><FaTwitter /> Twitter</a></li>
+          <li><a href="#" target="_blank" rel="noopener noreferrer"><FaInstagram /> Instagram</a></li>
+        </ul>
+      </div>
     </div>
   );
 };
