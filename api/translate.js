@@ -23,7 +23,13 @@ export default async function handler(req, res) {
             res.status(200).json(response.data);
         } catch (error) {
             console.error("Error in serverless function:", error.message);
-            res.status(500).json({ error: 'Translation failed' });
+            // Log the full error details if available
+            if (error.response) {
+                console.error("Error response data:", error.response.data);
+                res.status(error.response.status).json({ error: error.response.data });
+            } else {
+                res.status(500).json({ error: 'Translation failed' });
+            }
         }
     } else {
         res.setHeader('Allow', ['POST']);
