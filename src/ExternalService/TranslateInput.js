@@ -3,9 +3,9 @@ import axios from 'axios';
 const TranslateInput = async (Input, FromLang, ToLang) => {
     try {
         const result = await axios.post('../api/translate', {
-            Input,
-            FromLang,
-            ToLang
+            text: Input,
+            sourceLanguage: FromLang,
+            targetLanguage: ToLang
         });
 
         if (result.data.translations && result.data.translations.lenght > 0) {
