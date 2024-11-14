@@ -1,34 +1,32 @@
-import axios from 'axios';
-
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         const { text, sourceLang, targetLang } = req.body;
 
         try {
-            const response = await axios.post(
-                'https://api-free.deepl.com/v2/translate',
-                new URLSearchParams({
+            const response = await fetch('https://api-free.deepl.com/v2/translate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': `DeepL-Auth-Key ${process.env.DEEPL_API_KEY}`
+                },
+                body: new URLSearchParams({
                     text: text,
                     source_lang: sourceLang.toUpperCase(),
                     target_lang: targetLang.toUpperCase(),
-                }),
-                {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                        'Authorization': `DeepL-Auth-Key ${process.env.DEEPL_API_KEY}`
-                    }
-                }
-            );
+                })
+            });
 
-            res.status(200).json(response.data);
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error("Error response data:", errorData);
+                return res.status(response.status).json({ error: errorData });
+            }
+
+            const data = await response.json();
+            res.status(200).json(data);
         } catch (error) {
             console.error("Error in serverless function:", error.message);
-            if (error.response) {
-                console.error("Error response data:", error.response.data);
-                res.status(error.response.status).json({ error: error.response.data });
-            } else {
-                res.status(500).json({ error: 'Translation failed' });
-            }
+            res.status(500).json({ error: 'Translation failed' });
         }
     } else {
         res.setHeader('Allow', ['POST']);
